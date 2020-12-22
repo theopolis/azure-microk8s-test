@@ -8,13 +8,21 @@ trigger:
 
 strategy:
   matrix:
-    ubuntu-16.04:
-      imageName: 'ubuntu-16.04'
-    ubuntu-20.04:
-      imageName: 'ubuntu-20.04'
+    azure-pipelines-ubuntu-16.04:
+      poolName: Azure Pipelines
+      vmImage: ubuntu-16.04
+    azure-pipelines-ubuntu-20.04:
+      poolName: Azure Pipelines
+      vmImage: ubuntu-20.04
+
+# Leave the vmImage field blank.
+#    selfhosted:
+#      poolName: MyPoolName
+#      vmImage:
 
 pool:
-  vmImage: $(imageName)
+  name: $(poolName)
+  vmImage: $(vmImage)
 
 steps:
 - script: uname -a
