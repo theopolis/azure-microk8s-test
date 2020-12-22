@@ -6,8 +6,15 @@
 trigger:
 - main
 
+strategy:
+  matrix:
+    ubuntu-16.04:
+      imageName: 'ubuntu-16.04'
+    ubuntu-20.04:
+      imageName: 'ubuntu-20.04'
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(imageName)
 
 steps:
 - script: uname -a
