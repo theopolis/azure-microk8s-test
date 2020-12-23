@@ -14,11 +14,9 @@ strategy:
     azure-pipelines-ubuntu-20.04:
       poolName: Azure Pipelines
       vmImage: ubuntu-20.04
-
-# Leave the vmImage field blank.
-#    selfhosted:
-#      poolName: MyPoolName
-#      vmImage:
+    local-any:
+      poolName: Local
+      vmImage:
 
 pool:
   name: $(poolName)
