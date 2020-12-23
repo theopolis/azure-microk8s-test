@@ -14,8 +14,8 @@ strategy:
     azure-pipelines-ubuntu-20.04:
       poolName: Azure Pipelines
       vmImage: ubuntu-20.04
-    local-any:
-      poolName: Local
+    default-any:
+      poolName: Default
       vmImage:
 
 pool:
