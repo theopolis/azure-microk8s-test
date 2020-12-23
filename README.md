@@ -15,3 +15,13 @@ Links I found useful:
 - [Run the Azure DevOps agent in Docker](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops)
 - [Setup PATs for Access](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
 
+The final parts:
+
+```
+docker build -t localhost:32000/azpagent:registry .
+docker push localhost:32000/azpagent
+microk8s kubectl create secret generic azure-microk8s-secret \
+ --from-literal=AZP_URL=https://dev.azure.com/<ORG HERE> \
+ --from-literal=AZP_TOKEN=<TOKEN HERE>
+microk8s kubectl apply -f azure-microk8s-deployment.yaml 
+```
